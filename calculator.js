@@ -3,12 +3,47 @@
 let buttons = document.getElementsByTagName("button");
 
 for (i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click",updateDisplay);
+    buttons[i].addEventListener("click", calculate);
 }
 
+/*
 function updateDisplay() {
-    var input = this.innerHTML;
-    console.log(input);
-    document.getElementById("display").value = input;
-}
+    let input = this.innerHTML;
+    let display = document.getElementById("display");
 
+    if (input != '=') {
+        display.value += input;
+        console.log(display.value);
+    } else if (input == '=') {
+        display.value = eval(display.value);
+    }
+
+}
+*/
+
+//Calculates user input
+function calculate() {
+
+    // Grabs the value found in the buttons and stores it in variable input.
+    let input = this.innerHTML;
+
+    // Displays value from the button that has been pressed.
+    let display = document.getElementById("display");
+
+    // If the button that has been pressed is '=', calculate numbers given in the display.
+    if (input == '=') {
+        display.value = eval(display.value);
+
+        // else if 'AC' button is pressed, clear display (change to 0).
+    } else if (input == 'AC') {
+        display.value = '0';
+
+        // Otherwise, check if display is on 0, if so, then change 0 to a non-zero value, if not, then add on to the non-zero value.
+    } else {
+        if (display.value == '0') {
+            display.value = input;
+        } else {
+            display.value += input;
+        }
+    }
+}
