@@ -6,21 +6,6 @@ for (i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", calculate);
 }
 
-/*
-function updateDisplay() {
-    let input = this.innerHTML;
-    let display = document.getElementById("display");
-
-    if (input != '=') {
-        display.value += input;
-        console.log(display.value);
-    } else if (input == '=') {
-        display.value = eval(display.value);
-    }
-
-}
-*/
-
 //Calculates user input
 function calculate() {
 
